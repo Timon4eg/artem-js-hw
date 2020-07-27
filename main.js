@@ -70,14 +70,15 @@ if (a.number >= 0 && a.number <= 9){
 }
 
 //Продолжить работу с интернет-магазином:
-let arr = [5, 21, 14, 3, 1]
-
+let arr = [
+    {name: 'pc', price: 1000},
+    {name: 'iron', price: 50},
+    {name: 'laptop', price: 980},
+    {name: 'phone', price: 500},
+]
 let res = arr.reduce(function(sum, current) {
-  return sum + current;
-}, 0);
-
-alert(res); // сумма 44
-
-let
+    return sum + current.price
+}, 0)
+alert('Общая сумма покупок ' + res) // возможно я не правильно понял задание, но я привел корзину в вид массив объектов и посчитал общую сумму товаров в корзине
 
 //---------------------------конец Домашнего задания 4--------------------------
