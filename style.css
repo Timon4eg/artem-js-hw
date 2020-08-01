@@ -1,3 +1,4 @@
+/* -----стили для домашнего задания 5.1: Шахматная доска------ */
 .main {
     margin: 0 auto;
     width: 270px;
@@ -19,4 +20,40 @@
     width: 30px;
     background-color: #fff;
     align-self: center;
+}
+
+/* -----стили для домашнего задания 5.2: Корзина товаров------ */
+.cart {
+    margin: 0 auto;
+}
+
+.goods {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 15px;
+}
+
+.goods-header,
+.cart-header {
+    text-align: center;
+}
+
+.goods-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 15px;
+}
+
+.goods-name,
+.goods-price,
+.add-button {
+    font-size: 20px
+}
+
+.add-button:hover {
+    background-color: palegreen;
+}
+
+.add-button:active {
+    background-color: burlywood;
 }
