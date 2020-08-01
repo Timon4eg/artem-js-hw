@@ -42,7 +42,7 @@ while (i < 20){
 }
 
 //---------------------------конец Домашнего задания 3--------------------------
-*/
+
 
 //---------------------------Домашнее задание 4--------------------------
 
@@ -82,3 +82,42 @@ let res = arr.reduce(function(sum, current) {
 alert('Общая сумма покупок ' + res) // возможно я не правильно понял задание, но я привел корзину в вид массив объектов и посчитал общую сумму товаров в корзине
 
 //---------------------------конец Домашнего задания 4--------------------------
+*/
+
+//---------------------------Домашнее задание 5--------------------------
+
+// Шахматы
+let board = document.createElement('div')
+board.classList.add('main')
+document.body.append(board)
+
+function chess () {
+    let block
+    let letters = 'ABCDEFGH'
+    let flag = true
+    
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            block = document.createElement('div')
+            if (i==0 && j==0) {
+               block.innerText = ''
+                block.classList.add('white')
+            }
+            if (i==0 && j > 0) {
+                block.textContent = letters.charAt(j-1)
+                block.classList.add('keys')
+            }
+            if (j==0 && i > 0) {
+                block.textContent = i
+                block.classList.add('keys')
+            }
+            if (flag) block.classList.add('black')
+            else block.classList.add('white')
+            
+            board.appendChild(block)
+            flag = !flag
+        }
+    }
+}
+
+chess()
