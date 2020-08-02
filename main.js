@@ -42,7 +42,7 @@ while (i < 20){
 }
 
 //---------------------------конец Домашнего задания 3--------------------------
-*/
+
 
 //---------------------------Домашнее задание 4--------------------------
 
@@ -82,3 +82,98 @@ let res = arr.reduce(function(sum, current) {
 alert('Общая сумма покупок ' + res) // возможно я не правильно понял задание, но я привел корзину в вид массив объектов и посчитал общую сумму товаров в корзине
 
 //---------------------------конец Домашнего задания 4--------------------------
+*/
+
+//---------------------------Домашнее задание 5--------------------------
+
+// 5.1 Шахматы---------
+let board = document.createElement('div')
+board.classList.add('main')
+document.body.append(board)
+
+function chess () {
+    let block
+    let letters = 'ABCDEFGH'
+    let flag = true
+    
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            block = document.createElement('div')
+            if (i==0 && j==0) {
+               block.innerText = ''
+                block.classList.add('white')
+            }
+            if (i==0 && j > 0) {
+                block.textContent = letters.charAt(j-1)
+                block.classList.add('keys')
+            }
+            if (j==0 && i > 0) {
+                block.textContent = i
+                block.classList.add('keys')
+            }
+            if (flag) block.classList.add('black')
+            else block.classList.add('white')
+            
+            board.appendChild(block)
+            flag = !flag
+        }
+    }
+}
+
+chess()
+
+// 5.2 Продолжить работу с интернет-магазином:
+let cart = document.createElement('div')
+cart.classList.add('cart')
+document.body.append(cart)
+
+let goodsHeader = document.createElement('h2')
+goodsHeader.classList.add('goods-header')
+cart.appendChild(goodsHeader)
+goodsHeader.innerHTML = '<h2> Товары нашего магазина</h2>'
+
+let goods = document.createElement('div')
+goods.classList.add('goods')
+cart.appendChild(goods)
+
+let arrGoods = [
+    {name: 'Компьютер Asus', price: 1000},
+    {name: 'Утюг Bosch', price: 50},
+    {name: 'Ноутбук Acer', price: 980},
+    {name: 'Смартфон Apple', price: 500},
+]
+
+
+for (i = 0; i < 4; i++) {
+    let goodsItem = document.createElement('div')
+    goodsItem.classList.add('goods-item')
+    goods.appendChild(goodsItem)
+    
+    let goodsName = document.createElement('div')
+    goodsName.classList.add('goods-name')
+    goodsItem.appendChild(goodsName)
+    goodsName.innerHTML = arrGoods[i].name
+    
+    let goodsPrice = document.createElement('div')
+    goodsPrice.classList.add('goods-price')
+    goodsItem.appendChild(goodsPrice)
+    goodsPrice.innerHTML = arrGoods[i].price
+    
+    let addInCart = document.createElement('button')
+    addInCart.classList.add('add-button')
+    goodsItem.appendChild(addInCart)
+    addInCart.innerHTML = 'Добавить в корзину'
+}
+
+let cartHeader = document.createElement('h2')
+cartHeader.classList.add('cart-header')
+cart.appendChild(cartHeader)
+cartHeader.innerHTML = '<h2>Корзина</h2>'
+
+let arrCart = []
+let arrCartItem = {}
+arrCart.push(arrCartItem)
+console.log(arrCart) // здесь пока заготовка. По задумке при нажатии на кнопку Добавить в корзину должен отобразиться товар в корзине
+// Также должна будет считаться сумма и количество заказанных товаров
+
+//---------------------------конец Домашнего задания 5--------------------------
