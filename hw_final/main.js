@@ -2,7 +2,7 @@ class Good {
     done = false
     name = ''
     price = 0
-    count = 1
+    count = 0
     el = null
 
 
@@ -15,7 +15,22 @@ class Good {
     
     onDoneClick () {
         this.done = true
-        this.render()
+        this.count++
+        if (this.count < 2) {
+            this.render()
+        } else {
+            this.el.querySelector('.count').innerHTML = this.count
+        }
+    }
+
+    onDoneCartClick () {
+        this.done = true
+        this.count--
+        if (this.count < 1) {
+            this.el.remove()
+        } else {
+            this.el.querySelector('.count').innerHTML = this.count
+        }
     }
 
     createButton () {
@@ -26,6 +41,21 @@ class Good {
         return btn
     }
 
+    createMinusButton () {
+        const btnMinus = document.createElement('button')
+        btnMinus.classList.add('button-minus')
+        btnMinus.innerHTML = '-'
+        btnMinus.addEventListener('click', this.onDoneCartClick.bind(this))
+         return btnMinus
+     }
+
+     createCount () {
+        const valueCount = document.createElement('span')
+        valueCount.classList.add('count')
+        valueCount.innerHTML = `${this.count}`
+        return valueCount
+     }
+
     render () {
         this.el = document.createElement('div')
         this.el.classList.add('good')
@@ -35,6 +65,10 @@ class Good {
         `
         if(!this.done) {
             this.el.appendChild(this.createButton())
+        }
+        else {
+            this.el.appendChild(this.createMinusButton())
+            this.el.appendChild(this.createCount())
         }
     
         let place = null
