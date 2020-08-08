@@ -4,13 +4,13 @@ class Good {
     price = 0
     count = 0
     el = null
+    a = 0
 
 
     constructor (name, price) {
         this.name = name
         this.price = price
         this.render()
-        this.getSum()
     }
     
     onDoneClick () {
@@ -70,6 +70,13 @@ class Good {
             this.el.appendChild(this.createMinusButton())
             this.el.appendChild(this.createCount())
         }
+
+        this.sum = document.querySelector('.cart-sum')
+        if (this.count > 0) {
+            this.sum.innerHTML = `Итого к оплате ${this.price}`
+        } else {
+            this.sum.innerHTML = 'Корзина пуста'
+        }
     
         let place = null
         if (this.done) {
@@ -78,13 +85,7 @@ class Good {
             place = document.querySelector('.content-goods')
         }
         place.appendChild(this.el)
-    }
-
-    getSum () {
-        this.sum = document.querySelector('.cart-sum')
-        this.sum.innerHTML = 'Корзина пуста'      
-    }
-    
+    }   
 }
 
 const good1 = new Good('Компьютер Asus', 1000)

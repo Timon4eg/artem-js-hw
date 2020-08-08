@@ -23,6 +23,10 @@ main {
     background-color: #d5b3f5;
 }
 
+.cart-sum {
+    font-weight: 600;
+}
+
 .header-goods,
 .header-cart {
     font-size: 30px;
